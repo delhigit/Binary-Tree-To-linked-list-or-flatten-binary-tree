@@ -1,0 +1,21 @@
+    void helper(TreeNode* root, TreeNode* &preNext)
+    {
+        if(root == NULL)
+        return;
+        
+        helper(root -> right, preNext);
+        helper(root -> left, preNext);
+        
+        root -> right = preNext;
+        root -> left = NULL;
+        
+        preNext = root;
+    }
+
+    void flatten(TreeNode* root) {
+        
+        TreeNode* preNext = NULL;
+        helper(root, preNext);
+        
+        return;
+    }
